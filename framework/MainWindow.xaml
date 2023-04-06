@@ -1,0 +1,33 @@
+﻿<Window x:Class="framework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:framework"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="addBtn" Content="Создать" HorizontalAlignment="Left" Height="36" Margin="26,10,0,0" VerticalAlignment="Top" Width="94" Click="addBtn_Click"/>
+            <Button x:Name="editBtn" Content="Редактировать" HorizontalAlignment="Left" Height="36" Margin="138,10,0,0" VerticalAlignment="Top" Width="111" Click="editBtn_Click"/>
+            <Button x:Name="removeBtn" Content="Удалить" HorizontalAlignment="Left" Height="36" Margin="269,10,0,0" VerticalAlignment="Top" Width="131" Click="removeBtn_Click"/>
+        </StackPanel>
+
+        <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Margin="0 20" x:Name="datagrid" AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=name}"/>
+                <DataGridTextColumn Header="Текст" Binding="{Binding Path=text}"/>
+
+                <DataGridTextColumn Header="Автор" Binding="{Binding Path=user.name}"/>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+
+    </Grid>
+</Window>
